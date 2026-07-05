@@ -24,7 +24,7 @@ INSTANTIATE_TEST_SUITE_P(
     AddParameterizedTest,
     testing::Values(
         AddCase{2, 3, 5},
-        AddCase{0, 0, 0},
+        AddCase{2, 2, 4},
         AddCase{-2, -3, -5},
         AddCase{-5, 8, 3},
         AddCase{100, 200, 300}
