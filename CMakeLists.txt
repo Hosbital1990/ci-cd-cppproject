@@ -54,3 +54,19 @@ target_link_libraries(test_calculator PRIVATE
 include(GoogleTest)
 gtest_discover_tests(test_add)
 gtest_discover_tests(test_calculator)
+
+add_executable(test_order_service_integration
+    tests/test_order_service_integration.cpp
+    src/order_service.cpp
+    src/calculator.cpp
+)
+
+target_include_directories(test_order_service_integration PRIVATE
+    include
+)
+
+target_link_libraries(test_order_service_integration PRIVATE
+    GTest::gtest_main
+)
+
+gtest_discover_tests(test_order_service_integration)
