@@ -16,7 +16,7 @@ TEST_P(AddParameterizedTest, ReturnsExpectedResult)
 {
     AddCase testCase = GetParam();
 
-    EXPECT_GT(add(testCase.a, testCase.b), testCase.expected);
+    EXPECT_EQ(add(testCase.a, testCase.b), testCase.expected);
 }
 
 INSTANTIATE_TEST_SUITE_P(
