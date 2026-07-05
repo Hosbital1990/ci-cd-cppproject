@@ -7,10 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 # App target
-add_executable(hello_world
-    src/main.cpp
-    src/add.cpp
-)
+file(GLOB APP_SOURCES "src/*.cpp")
+add_executable(hello_world ${APP_SOURCES})
 
 target_include_directories(hello_world PRIVATE
     include
@@ -39,5 +37,20 @@ target_link_libraries(test_add PRIVATE
     GTest::gtest_main
 )
 
+# configuration for calculator tests
+add_executable(test_calculator
+    tests/test_calculator.cpp
+    src/calculator.cpp
+)
+
+target_include_directories(test_calculator PRIVATE
+    include
+)
+
+target_link_libraries(test_calculator PRIVATE
+    GTest::gtest_main
+)
+
 include(GoogleTest)
 gtest_discover_tests(test_add)
+gtest_discover_tests(test_calculator)

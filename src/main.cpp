@@ -1,8 +1,16 @@
 #include <iostream>
-#include "add.h"
+#include "order_service.h"
 
-int main() {
-    std::cout << "Hello, World baharr!" << std::endl;
-    std::cout << "2 + 3 = " << add(2, 3) << std::endl;
+int main()
+{
+    OrderService orderService;
+
+    int price = 20;
+    int quantity = 3;
+
+    int total = orderService.calculateOrderTotal(price, quantity);
+
+    std::cout << "Order total: " << total << '\n';
+
     return 0;
 }
